@@ -32,9 +32,11 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     override fun onClick(v: View?) {
         if (v?.id == binding.buttonsLayout.btnEquals.id) {
-            val result = resolveOperation()
-            binding.tvResult.text = result.toString()
-            binding.tvTemp.text = actualOperation
+            if (isPresentOneOperator()) {
+                val result = resolveOperation()
+                binding.tvResult.text = result.toString()
+                binding.tvTemp.text = actualOperation
+            }
 
         } else {
             if (operators.contains(v?.id)) {
@@ -60,6 +62,16 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
             binding.tvTemp.text = actualOperation
         }
+    }
+
+    private fun isPresentOneOperator(): Boolean {
+
+        for (operator in listOf("%", "÷", "x", "-", "+")) {
+            if (actualOperation.contains(operator))
+                return true
+        }
+
+        return false
     }
 
     private fun appendButtonText(v: View?) {
