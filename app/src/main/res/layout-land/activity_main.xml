@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvTemp"
-            android:textSize="14sp"
+            android:textSize="20sp"
             android:padding="0dp"
             android:layout_gravity="end"
             android:textAlignment="textEnd"
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tvResult"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:padding="0dp"
             android:layout_gravity="end"
             android:textAlignment="textEnd" />

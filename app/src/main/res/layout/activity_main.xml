@@ -15,7 +15,8 @@
             android:padding="10dp"
             android:layout_gravity="end"
             android:textAlignment="textEnd"
-            android:textColor="#818181" />
+            android:textColor="#818181"
+            android:layout_marginTop="100dp" />
 
     <TextView
             android:text="0"
