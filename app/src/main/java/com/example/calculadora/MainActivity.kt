@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        actualOperation = savedInstanceState?.getString("actualOperation") ?: ""
+        binding.tvTemp.text = savedInstanceState?.getString("actualOperation") ?: "0"
+        binding.tvResult.text = savedInstanceState?.getString("tvResult") ?: "0"
 
         operators = listOf(binding.buttonsLayout.btnSum.id, binding.buttonsLayout.btnDivide.id, binding.buttonsLayout.btnMultiply.id, binding.buttonsLayout.btnSubtract.id, binding.buttonsLayout.btnPercentage.id)
 
@@ -29,6 +32,11 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("actualOperation", actualOperation)
+        outState.putString("tvResult", binding.tvResult.text.toString())
+    }
 
     override fun onClick(v: View?) {
         if (v?.id == binding.buttonsLayout.btnEquals.id) {
