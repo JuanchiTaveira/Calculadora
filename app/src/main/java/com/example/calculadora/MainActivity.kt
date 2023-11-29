@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         if (v?.id == binding.buttonsLayout.btnEquals.id) {
             if (isPresentOneOperator()) {
                 val result = resolveOperation()
-                binding.tvResult.text = result.toString()
+                binding.tvResult.text = removeDecimalsIfAreCeros(result)
                 binding.tvTemp.text = actualOperation
             }
 
@@ -70,6 +70,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
             binding.tvTemp.text = actualOperation
         }
+    }
+
+    private fun removeDecimalsIfAreCeros(result: Double): String {
+        return if (result.toString().endsWith(".0")) result.toInt().toString() else result.toString()
     }
 
     private fun isPresentOneOperator(): Boolean {
